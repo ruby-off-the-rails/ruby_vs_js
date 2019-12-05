@@ -35,19 +35,35 @@ function insertValue(numbers, target) {
   // console.log(numbers)
   var newArray = [];
   var inserted = false;
+  var i = 0;
   numbers.forEach(function(number) {
     // console.log(number);
-    if (number < target) {
-      newArray.push(number);
-    } else if (number >= target && inserted === false) {
-      newArray.push(target);
-      inserted = true;
-      newArray.push(number);
-    } else {
-      newArray.push(number);
+    if (number > target) {
+      // add the number to the array then you're done
+
+      numbers.splice(i, 0, target);
+      return numbers;
     }
+    i++;
   });
   return newArray;
 }
 
 console.log(insertValue([1,4,6,8,10,11,12,14], 7));
+
+
+
+
+// 5. Write a function that accepts two arguments. The first argument is an array of numbers that are in ascending order. The second argument is a number that is contained within the array. The function should return the string "lower" if the value is found in the lower half of the array, and it should return "higher" if the value is found within the greater half of the array. Try to optimize this algorithm so that it takes a minimum number of steps!
+
+function higherLower(numbers, target) {
+  // find the middle value in the array
+  // find the middle index in the array
+  if (numbers[Math.floor(numbers.length / 2)] > target) {
+    console.log("lower");
+  } else {
+    console.log("higher");
+  }
+}
+
+higherLower([1,4,6,8,10,11,12,14,15], 14)
