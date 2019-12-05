@@ -36,16 +36,27 @@ function insertValue(numbers, target) {
   var newArray = [];
   var inserted = false;
   var i = 0;
-  numbers.forEach(function(number) {
-    // console.log(number);
-    if (number > target) {
-      // add the number to the array then you're done
 
+  while (i < numbers.length) {
+    if (numbers[i] > target) {
       numbers.splice(i, 0, target);
       return numbers;
     }
-    i++;
-  });
+    return null;
+  }
+
+  // numbers.forEach(function(number) {
+  //   // console.log(number);
+  //   if (number > target) {
+  //     // add the number to the array then you're done
+  //     console.log(i)
+  //     console.log(numbers)
+  //     numbers.splice(i, 0, target);
+  //     console.log(numbers)
+  //     return numbers;
+  //   }
+  //   i++;
+  // });
   return newArray;
 }
 
